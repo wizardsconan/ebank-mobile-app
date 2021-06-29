@@ -4,7 +4,6 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -13,6 +12,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.google.common.base.Predicate;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
@@ -71,26 +72,14 @@ public class MobilePageObject extends PageObject {
 		StringSelection stringSelectio = new StringSelection(pathFile);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelectio, null);
 	}
+	
+	/*AndroidDriver<AndroidElement> androidDriver() {
+	    return (AndroidDriver<AndroidElement>);
+	            ((WebDriverFacade) getDriver()).getProxiedDriver();
 
-	public static void uploadFile(String fileLocation) {
-		// setting clip board with file location
-		setClipboardData(fileLocation);
-		// native key strokes for CTRL, V and Enter keys
-		try {
-			Robot robot = new Robot();
-			robot.keyPress(KeyEvent.VK_CONTROL);
-			robot.keyPress(KeyEvent.VK_V);
-			robot.keyRelease(KeyEvent.VK_V);
-			robot.keyRelease(KeyEvent.VK_CONTROL);
-			Thread.sleep(1000);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			robot.keyPress(KeyEvent.VK_ENTER);
-			//Thread.sleep(3000);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	}*/
+
+	
 
 	public void openContentMenu(WebElementFacade webElement, String value) {
 		withAction().moveToElement(webElement).click().sendKeys(webElement, value).keyDown(Keys.CONTROL).sendKeys("a")
