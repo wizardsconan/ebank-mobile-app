@@ -9,6 +9,7 @@ import app.msb.ebank.mobile.models.InfoOtp;
 import app.msb.ebank.mobile.models.UserOrContact;
 import app.msb.ebank.mobile.steps.serenity.AcceptTermsConditionsSteps;
 import app.msb.ebank.mobile.steps.serenity.ActiveAccountAppStep;
+import app.msb.ebank.mobile.steps.serenity.ContinueApprovedSteps;
 import app.msb.ebank.mobile.steps.serenity.HomeSteps;
 import app.msb.ebank.mobile.steps.serenity.LoginSteps;
 import app.msb.ebank.mobile.steps.serenity.OTPSteps;
@@ -18,7 +19,7 @@ import net.thucydides.core.annotations.Steps;
 
 
 @RunWith(SerenityRunner.class)
-public class HomePageTest {
+public class ContinueRejectTest {
 	@Managed(uniqueSession = false)
    WebDriver webdriver;
 
@@ -32,6 +33,8 @@ public class HomePageTest {
     LoginSteps Login;
     @Steps
     HomeSteps HomeSteps;
+    @Steps
+    ContinueApprovedSteps ContinueAproved;
     InfoOtp otp= new InfoOtp("1","1","1","1","1","1");
     AccountLogin info = new AccountLogin(UserOrContact.UserMaker, UserOrContact.Password);
     @Test
@@ -41,6 +44,8 @@ public class HomePageTest {
     	Login.login_App_With(info);
     	OTPStep.verifyOTP_witht(otp);
     	HomeSteps.clickLoadTransaction();
+    	ContinueAproved.clickRejectBT();
+    
     }
 
 }

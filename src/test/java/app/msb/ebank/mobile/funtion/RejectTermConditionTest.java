@@ -12,7 +12,7 @@ import net.thucydides.core.annotations.Steps;
 
 
 @RunWith(SerenityRunner.class)
-public class AcceptTermConditionTest {
+public class RejectTermConditionTest {
 	@Managed(uniqueSession = false)
    WebDriver webdriver;
 
@@ -20,12 +20,11 @@ public class AcceptTermConditionTest {
     ActiveAccountAppStep ActiveAccountApp;
     @Steps
     AcceptTermsConditionsSteps AcceptTermsConditions;
-    
+     
     @Test
     public void AcceptTermsConditions() {
     	ActiveAccountApp.activeAccountAppStep();
-    	AcceptTermsConditions.acceptTermsConditions();
-
+    	AcceptTermsConditions.click_rejectButton();
     	
     }
 

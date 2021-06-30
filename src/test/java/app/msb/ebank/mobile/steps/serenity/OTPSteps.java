@@ -1,5 +1,6 @@
 package app.msb.ebank.mobile.steps.serenity;
 
+import app.msb.ebank.mobile.models.InfoOtp;
 import app.msb.ebank.mobile.pages.InputOTPPages;
 import net.thucydides.core.annotations.Step;
 
@@ -7,9 +8,13 @@ public class OTPSteps {
 	InputOTPPages InputOTP;
 	
 	@Step
-	public void verifyOTP(){
-		
-		
+	public void verifyOTP_witht(InfoOtp inputOtp){
+		inputOTP1(inputOtp.getOtp1());
+		inputOTP2(inputOtp.getOtp2());
+		inputOTP3(inputOtp.getOtp3());
+		inputOTP4(inputOtp.getOtp4());
+		inputOTP5(inputOtp.getOtp5());
+		inputOTP6(inputOtp.getOtp6());
 	}
 	
 	@Step

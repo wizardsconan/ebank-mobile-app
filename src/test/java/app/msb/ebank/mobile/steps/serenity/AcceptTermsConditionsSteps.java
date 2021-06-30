@@ -8,6 +8,11 @@ public class AcceptTermsConditionsSteps {
 	
 	@Step
 	public void acceptTermsConditions() {
+		checkAcceptTermsConditions();
+		click_acceptButton();
+	}
+	@Step
+	public void checkAcceptTermsConditions() {
 		AcceptTerms.acceptTermsConditions();
 	}
 	@Step
